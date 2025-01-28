@@ -1,13 +1,95 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* src/App.css */
+
+.App {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 15px; /* Rounded corners for the entire form */
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f9f9f9;
+  justify-content: center;
+}
+
+.form-container div {
+  margin: 10px 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 9px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 10px; /* Rounded corners for the inputs */
+  border: 1px solid #ccc;
+  width: 97%;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4CAF50; /* Change border color on focus */
+}
+
+button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Rounded corners for the button */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+h3 {
+  margin-top: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.qr-code-container {
+  display: flex;            /* Use Flexbox layout */
+  flex-direction: column;   /* Stack elements vertically */
+  align-items: center;      /* Center elements horizontally */
+  text-align: center;       /* Center text */
+  padding: 20px;            /* Add some padding inside the container */
+}
+
+.image-container {
+  display: flex;            /* Align images side by side */
+  justify-content: center;  /* Center images horizontally */
+  gap: 20px;                /* Space between images */
+  margin-top: 20px;         /* Space above the image container */
+}
+
+.logo {
+  width: 100px;             /* Set width for logos */
+  height: auto;             /* Maintain aspect ratio */
+}
+
+
+
+
+.image-container {
+  display: flex; /* Flexbox to align images side by side */
+  justify-content: center; /* Center images horizontally */
+  gap: 20px; /* Space between the images */
+}
+
+.logo {
+  width: 150px;  /* Set a consistent width for both images */
+  height: auto;  /* Keep the aspect ratio intact */
+  /* object-fit: contain; Prevent stretching or distortion */
 }
