@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import QRCode from "qrcode.react"; // Import QRCode component
-import { QRCodeCanvas } from "qrcode.react";
+import {QRCodeCanvas} from "qrcode.react";
+import { TextField, Button, Container, Typography, Grid, Box } from "@mui/material";
 
 function App() {
   // State for UPI parameters
@@ -15,84 +15,107 @@ function App() {
   };
 
   return (
-    <div className="form-container">
-      <h2>Generate UPI QR Code</h2>
+    <Container maxWidth="lg" sx={{ padding: 4 }} >
+      <Typography variant="h4" gutterBottom align="center">
+        Generate UPI QR Code
+      </Typography>
 
-      {/* Form to enter UPI parameters */}
-      <form>
-        {/* <div> */}
-          <label>Payee UPI ID</label>
-          <input
-            type="text"
-            value={payeeVpa}
-            onChange={e => setPayeeVpa(e.target.value)}
-            placeholder="7738482563@amazonpay"
-            required
-          />
-        {/* </div> */}
+      {/* Grid layout for form and QR code */}
+      <Grid container spacing={4} justifyContent="center" alignItems="center"  mt={4} sx={{
+            backgroundColor: "#f5f5f5", // Light gray background color
+            borderRadius: "12px", // Rounded corners
+            padding: "20px", // Padding inside the box
+            boxShadow: 3, // Optional: add a subtle shadow for depth
+          }}>
+        {/* Left side - Form */}
+        <Grid item xs={12} md={5} >
+          <Box>
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                label="Payee UPI ID"
+                value={payeeVpa}
+                onChange={(e) => setPayeeVpa(e.target.value)}
+                placeholder="7738482563@amazonpay"
+                required
+              />
+            </Box>
 
-        {/* <div> */}
-          <label>Payee Name</label>
-          <input
-            type="text"
-            value={payeeName}
-            onChange={e => setPayeeName(e.target.value)}
-            placeholder="Demo Payee"
-            required
-          />
-        {/* </div> */}
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                label="Payee Name"
+                value={payeeName}
+                onChange={(e) => setPayeeName(e.target.value)}
+                placeholder="Demo Payee"
+                required
+              />
+            </Box>
 
-        {/* <div> */}
-          <label>Amount</label>
-          <input
-            type="number"
-            value={amount}
-            onChange={e => setAmount(e.target.value)}
-            placeholder="10"
-          />
-        {/* </div> */}
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                type="number"
+                label="Amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder="10"
+              />
+            </Box>
 
-        {/* <div> */}
-          <label>Transaction Note</label>
-          <input
-            type="text"
-            value={transactionNote}
-            onChange={e => setTransactionNote(e.target.value)}
-            placeholder="Demo Transaction"
-          />
-        {/* </div> */}
-      </form>
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                label="Transaction Note"
+                value={transactionNote}
+                onChange={(e) => setTransactionNote(e.target.value)}
+                placeholder="Demo Transaction"
+              />
+            </Box>
+          </Box>
+        </Grid>
 
-      <div className="qr-code-container">
-        <h3>
-          {payeeName.toUpperCase()}
-        </h3>
-        <QRCodeCanvas value={generateUpiUrl()} size={256} />
-        <h5>
-          {payeeVpa}
-        </h5>
-        <h2>Scan and pay with any UPI app</h2>
-        <div className="image-container">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/BHIM_SVG_Logo.svg/320px-BHIM_SVG_Logo.svg.png"
-            alt="BHIM Logo"
-            className="logo"
-          />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6f/UPI_logo.svg"
-            alt="UPI Logo"
-            className="logo"
-          />
-        </div>
-      </div>
+        {/* Right side - QR Code and Details */}
+        <Grid item xs={12} md={5}>
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
+            <Typography variant="h6" textAlign="center">
+              {payeeName.toUpperCase()}
+            </Typography>
 
-      {/* <div>
-        <h4>Generated UPI URL:</h4>
-        <p>{generateUpiUrl()}</p>
-        </div> */}
+            {/* QR Code */}
+            <QRCodeCanvas value={generateUpiUrl()} size={196} />
 
-      {/* <image src="https://upload.wikimedia.org/wikipedia/commons/6/6f/UPI_logo.svg"></image> */}
-    </div>
+            <Typography variant="h7" mt={1}>
+              {payeeVpa}
+            </Typography>
+
+            <Typography variant="h5" mt={1} textAlign="center">
+              Scan and pay with any UPI app
+            </Typography>
+
+            {/* Logos */}
+            <Grid container spacing={2} justifyContent="center" mt={2}>
+              <Grid item>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/BHIM_SVG_Logo.svg/320px-BHIM_SVG_Logo.svg.png"
+                  alt="BHIM Logo"
+                  className="logo"
+                  style={{ width: 120, height: 50 }}
+                />
+              </Grid>
+              <Grid item>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6f/UPI_logo.svg"
+                  alt="UPI Logo"
+                  className="logo"
+                  style={{ width: 120, height: 50 }}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 
