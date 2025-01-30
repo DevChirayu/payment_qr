@@ -16,20 +16,34 @@ function App() {
 
   return (
     <Container maxWidth="lg" sx={{ padding: 4 }} >
-      <Typography variant="h4" gutterBottom align="center">
+      {/* <Typography variant="h4" gutterBottom align="center">
+        Generate UPI QR Code
+      </Typography> */}
+      <Typography 
+        variant="h4" 
+        gutterBottom 
+        align="center"
+        sx={{
+          fontFamily: "Exo 2, sans-serif",
+          fontWeight: 'bold',
+          fontSize: '2rem',
+          color: '',
+        }}
+      >
         Generate UPI QR Code
       </Typography>
+
 
       {/* Grid layout for form and QR code */}
       <Grid container spacing={4} justifyContent="center" alignItems="center"  mt={4} sx={{
             backgroundColor: "#f5f5f5", // Light gray background color
             borderRadius: "12px", // Rounded corners
-            padding: "20px", // Padding inside the box
+            // padding: "20px", // Padding inside the box
             boxShadow: 3, // Optional: add a subtle shadow for depth
           }}>
         {/* Left side - Form */}
-        <Grid item xs={12} md={5} >
-          <Box>
+        <Grid item xs={12} md={5}  display={"flex"} justifyContent="center" alignItems="center" sx={{ height: '450px', borderRight: '2px solid #ddd', paddingRight: 7 }} >
+          <Box sx={{ width:'100%'}}>
             <Box mb={2}>
               <TextField
                 fullWidth
@@ -93,23 +107,56 @@ function App() {
               Scan and pay with any UPI app
             </Typography>
 
-            {/* Logos */}
+            {/* Logos main */}
             <Grid container spacing={2} justifyContent="center" mt={2}>
-              <Grid item>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/BHIM_SVG_Logo.svg/320px-BHIM_SVG_Logo.svg.png"
-                  alt="BHIM Logo"
-                  className="logo"
-                  style={{ width: 120, height: 50 }}
-                />
+             
+              <Grid container spacing={2} justifyContent="center" mt={2}>
+                {/* Logos Row 1 Column 1 */}
+                <Grid item>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/BHIM_SVG_Logo.svg/320px-BHIM_SVG_Logo.svg.png"
+                    alt="BHIM Logo"
+                    className="logo"
+                    style={{ width: 120, height: 50 }}
+                  />
+                </Grid>
+                {/* Logos Row 1 Column 2 */}
+                <Grid item>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/6f/UPI_logo.svg"
+                    alt="UPI Logo"
+                    className="logo"
+                    style={{ width: 120, height: 50 }}
+                  />
+                </Grid>
               </Grid>
-              <Grid item>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/6f/UPI_logo.svg"
-                  alt="UPI Logo"
-                  className="logo"
-                  style={{ width: 120, height: 50 }}
-                />
+
+              <Grid container spacing={2} justifyContent="center" mt={2}>
+                  {/* Logos Row 1 Column 1 */}
+                  <Grid item>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg"
+                      alt="Gpay Logo"
+                      className="logo"
+                      style={{ width: 120, height: 50 }}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/4/42/Paytm_logo.png"
+                      alt="Paytm Logo"
+                      className="logo"
+                      style={{ width: 130, height: 50 }}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/2/29/Amazon_Pay_logo.svg"
+                      alt="amazon Logo"
+                      className="logo"
+                      style={{ width: 140, height: 60 }}
+                    />
+                  </Grid>
               </Grid>
             </Grid>
           </Box>
